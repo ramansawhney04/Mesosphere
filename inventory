@@ -1,0 +1,26 @@
+master1 ansible_ssh_host=192.168.33.2 ansible_ssh_user=root
+master2 ansible_ssh_host=192.168.33.3 ansible_ssh_user=root
+master3 ansible_ssh_host=192.168.33.4 ansible_ssh_user=root
+slave1 ansible_ssh_host=192.168.33.5 ansible_ssh_user=root
+slave2 ansible_ssh_host=192.168.33.6 ansible_ssh_user=root
+slave3 ansible_ssh_host=192.168.33.7 ansible_ssh_user=root
+ubuntu ansible_ssh_host=192.168.33.56 ansible_ssh_user=root
+gray1 ansible_ssh_host=192.168.33.76 ansible_ssh_user=root
+web1 ansible_ssh_host=192.168.33.51 ansible_ssh_user=root
+db1 ansible_ssh_host=192.168.33.52 ansible_ssh_user=root
+[mywebservers]
+web1
+[mydbservers]
+db1
+[mydatacenter:children]
+mywebservers
+mydbservers
+[mesosmaster1]
+master1
+master2
+master3
+[mesosslave]
+slave1
+slave2
+slave3
+
